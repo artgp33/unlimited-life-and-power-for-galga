@@ -23,6 +23,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         `, spacePlane, 200, 0)
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    statusbar.value = 3
     for (let index = 0; index < 10; index++) {
         info.changeScoreBy(19999999)
         info.changeLifeBy(333333)
@@ -38,9 +39,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     otherSprite.destroy()
     scene.cameraShake(4, 500)
     info.changeLifeBy(-1)
+    statusbar.value += -1
 })
 let boggey: Sprite = null
 let projectile: Sprite = null
+let statusbar: StatusBarSprite = null
 let spacePlane: Sprite = null
 spacePlane = sprites.create(img`
     ....ffffff..............
@@ -185,6 +188,10 @@ scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     `)
+statusbar = statusbars.create(20, 4, StatusBarKind.Health)
+statusbar.attachToSprite(spacePlane)
+statusbar.max = 3
+statusbar.setLabel("HP")
 game.onUpdateInterval(1000, function () {
     boggey = sprites.create(img`
         . . . . c c c c c . . . . . . . 
