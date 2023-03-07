@@ -22,6 +22,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . . . . . . 
         `, spacePlane, 200, 0)
 })
+info.onScore(10, function () {
+    info.changeLifeBy(1)
+})
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     statusbar.value = 3
     for (let index = 0; index < 10; index++) {

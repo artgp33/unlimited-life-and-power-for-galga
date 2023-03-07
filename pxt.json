@@ -5,7 +5,9 @@
         "device": "*",
         "pxt-button-combos": "github:jwunderl/pxt-button-combos#v0.0.24",
         "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.2",
-        "sprite-scaling": "*"
+        "sprite-scaling": "*",
+        "arcade-minimap": "github:microsoft/arcade-minimap#v0.6.1",
+        "arcade-text": "github:microsoft/arcade-text#v1.3.0"
     },
     "files": [
         "main.blocks",
